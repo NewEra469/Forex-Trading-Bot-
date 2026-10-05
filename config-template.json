@@ -1,0 +1,71 @@
+{
+  "connection": {
+    "backend_url": "http://localhost:5000",
+    "comment": "Change to Railway URL when deployed: https://your-project-randomstring.railway.app"
+  },
+  "mt5": {
+    "login": 123456,
+    "password": "your_password_here",
+    "server": "XMGlobal-Demo",
+    "comment": "Get these from your MT5 account or broker"
+  },
+  "trading": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "timeframes": {
+      "EURUSD": 15,
+      "GBPUSD": 15,
+      "USDJPY": 5
+    },
+    "lot_size": {
+      "EURUSD": 0.1,
+      "GBPUSD": 0.1,
+      "USDJPY": 0.05
+    },
+    "max_trades": 5,
+    "risk_per_trade": 2.0,
+    "comment": "Start with small lot sizes for testing"
+  },
+  "indicators": {
+    "rsi_period": 14,
+    "rsi_overbought": 70,
+    "rsi_oversold": 30,
+    "ma_period": 20,
+    "macd_enabled": true,
+    "macd_fast": 12,
+    "macd_slow": 26,
+    "macd_signal": 9,
+    "comment": "Adjust these based on your strategy"
+  },
+  "risk_management": {
+    "max_drawdown_percent": 10,
+    "stop_loss_pips": 50,
+    "take_profit_pips": 100,
+    "comment": "Implement these in your custom strategy"
+  },
+  "strategy": {
+    "type": "combined",
+    "options": [
+      "rsi_only",
+      "moving_average_crossover",
+      "macd_only",
+      "combined"
+    ],
+    "confidence_threshold": 0.5,
+    "comment": "See strategy.py for implementations"
+  },
+  "logging": {
+    "level": "INFO",
+    "max_logs": 100,
+    "comment": "INFO, DEBUG, WARNING, ERROR"
+  },
+  "schedule": {
+    "run_hours": "00:00-23:59",
+    "timezone": "UTC",
+    "skip_weekends": true,
+    "comment": "Configure trading hours (optional)"
+  }
+}
